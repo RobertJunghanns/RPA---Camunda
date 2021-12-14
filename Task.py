@@ -5,3 +5,8 @@ router = ZeebeTaskRouter()
 @router.task(task_type="decrease_v_days")
 async def decrease_v_days(remaining_v_days: int, requested_v_days: int) -> int:
     return {"remaining_v_days": remaining_v_days-requested_v_days}
+
+
+@router.task(task_type="restore_v_days")
+async def restore_v_days(remaining_v_days: int, requested_v_days: int) -> int:
+    return {"remaining_v_days": remaining_v_days+requested_v_days}
